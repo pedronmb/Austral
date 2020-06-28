@@ -1,4 +1,10 @@
 Evaluacón Austral
+
+///////////Instalación////////////
+	-Cambiar el nombre de la carpeta del proyecto de 'Austral-master' a 'austral'
+	-La ruta dentro del WAMP quedaría: 'wamp64\www\austral'
+    
+    
 Desarrollador en:
     Framework: Symfony 5
     Servidor: WAMP (Windows)
