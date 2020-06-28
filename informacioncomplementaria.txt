@@ -1,0 +1,23 @@
+Evaluacón Austral
+Desarrollador en:
+    Framework: Symfony 5
+    Servidor: WAMP (Windows)
+    ORM: Doctrine
+    Base de datos: MySQL
+    GitHub
+
+Urls del proyecto
+/index
+    usuario: austral
+    contrseña: austral
+    visualiza los turnos totales, atendidos y no atendidos
+    información del clima obtenida por el servicio de https://weatherstack.com
+/api/sacar_turno/{id_cola}
+    saca el turno para la cola pasada por id
+/api/atender_proximo
+    devuelve el turno al que hay que atender por sistema de colas FIFO
+
+Base de Datos:
+    en el archivo /database.sql del proyecto se encuentra el sript para la creacion de la base de datos
+    para agregar una cola nueva se debe hacer un insert del primer elemento de la cola nueva
+    

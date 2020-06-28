@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %} 
+   <script language = "javascript" 
+      src = "https://code.jquery.com/jquery-2.2.4.min.js"></script> 
+   
+   <script language = "javascript">  
+       
+      function valores() {  
+            $.ajax({  
+               url:        'austral/public/index',  
+               type:       'POST',   
+               dataType:   'json',  
+               async:      true,  
+               
+               success: function(data, status) {  
+                  var e = $('<tr><th>Turnos totales</th><th>Turnos sin atender</th><th>Turnos atendidos</th></tr>');  
+                  $('#turno').html('');  
+                  $('#turno').append(e);  
+                  turno = data;
+                  
+                  var e = $('<tr><td id = "turnosTotales"></td><td id = "turnosNoAtendidos"></td><td id = "turnosAtendidos"></td></tr>');
+                     
+                  $('#turnosTotales', e).html(turno['turnos_totales']);  
+                  $('#turnosNoAtendidos', e).html(turno['turnos_no_atendidos']);
+                  $('#turnosAtendidos', e).html(turno['turnos_atendidos']);
+                  $('#turno').append(e);  
+                    
+               },  
+               error : function(xhr, textStatus, errorThrown) {  
+                  alert(textStatus);  
+               }  
+            });  
+         };
+       
+       
+      $(document).ready(function(){   
+         setInterval('valores()',1000);
+      });  
+   </script> 
+{% endblock %}  
+{% block stylesheets %} 
+   <style> 
+      .table { border-collapse: collapse; } 
+      .table th, td { 
+         border-bottom: 1px solid #ddd; 
+         width: 250px; 
+         text-align: left; 
+         align: left; 
+      } 
+   </style> 
+{% endblock %} 
+{% block title %}Austral{% endblock %}
+
+{% block body %}
+    
+    <p>Cllima en: {{ ciudad }}</p>
+    <p>Temperatura: {{ temperatura }}</p>
+    <p>Presión: {{ presion }}</p> 
+    <p>Humedad: {{ humedad }}</p> 
+    
+    </br> 
+   </br>
+    <h2 id = "loadturnos">Turnos</h2>  
+   </br> 
+   </br>  
+   
+   <table class = "table">  
+      <tbody id = "turno"></tbody>  
+   </table>     
+
+{% endblock %}

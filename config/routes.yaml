@@ -1,0 +1,16 @@
+index:
+    path: /index
+    controller: App\Controller\HomeController::index
+    methods: [POST,GET]
+    
+sacar_turno:
+    path: /api/sacar_turno/{id_cola}
+    controller: App\Controller\ApiController::sacar_turno
+    methods: [GET]
+    defaults: { id_cola: 0}
+    
+atender_proximo:
+    path: /api/atender_proximo/
+    controller: App\Controller\ApiController::atender_proximo
+    methods: [GET]
+
